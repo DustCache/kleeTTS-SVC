@@ -47,3 +47,6 @@ out/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# 运行时生成的缓存（跨 Python 版本不可靠，让用户首次运行自动生成）
+*.pickle
