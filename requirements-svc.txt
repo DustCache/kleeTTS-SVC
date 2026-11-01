@@ -1,0 +1,27 @@
+# DDSP-Reflow (DDSP-SVC 6.2) 推理依赖
+#
+# 重要：fairseq 是硬依赖（ddsp/vocoder.py 顶部 `from fairseq import checkpoint_utils`）。
+# Windows 下 `pip install fairseq==0.12.2` 经常因编译失败，install.cmd 会尝试安装；
+# 若失败，请看 README「常见问题 / fairseq」一节的三种替代方案。
+
+fairseq==0.12.2
+
+FreeSimpleGUI
+gin
+gin_config
+librosa
+matplotlib
+numpy==1.26.4
+praat-parselmouth
+pyworld
+PyYAML
+resampy
+scikit_learn
+scipy
+sounddevice
+soundfile
+tensorboard
+torchcrepe
+torchfcpe
+tqdm
+transformers

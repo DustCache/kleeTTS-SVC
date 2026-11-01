@@ -1,0 +1,49 @@
+# ---- 模型权重（体积大，不进 git；用 Release 资产或网盘分发）----
+*.ckpt
+*.pth
+*.pt
+*.onnx
+*.safetensors
+
+TTS/GPT_weights_v2/*
+!TTS/GPT_weights_v2/.gitkeep
+TTS/SoVITS_weights_v2/*
+!TTS/SoVITS_weights_v2/.gitkeep
+TTS/GPT_SoVITS/pretrained_models/*
+!TTS/GPT_SoVITS/pretrained_models/.gitkeep
+TTS/GPT_SoVITS/text/G2PWModel/*
+!TTS/GPT_SoVITS/text/G2PWModel/.gitkeep
+SVC/pretrain/*
+!SVC/pretrain/.gitkeep
+SVC/exp/**/*.pt
+SVC/exp/**/*.pth
+SVC/exp/**/*.ckpt
+models/*
+!models/.gitkeep
+
+# ---- Python 环境 ----
+.venv-tts/
+.venv-svc/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ---- 运行产物 ----
+*.log
+SVC/cache/
+SVC/logs/
+TTS/logs/
+TTS/temp/
+TTS/output/
+out/
+*.wav
+*.mp3
+!TTS/data/klee/audio/*.wav
+
+# ---- 编辑器/系统 ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
