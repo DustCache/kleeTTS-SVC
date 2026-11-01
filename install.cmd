@@ -62,7 +62,14 @@ if not exist ".venv-tts\Scripts\python.exe" (
 call ".venv-tts\Scripts\activate.bat"
 python -m pip install --upgrade pip -q
 python -m pip install torch torchaudio --index-url %TORCH_INDEX% || goto :fail
-python -m pip install -r requirements-tts.txt || goto :fail
+python -m pip install -r requirements-tts.txt
+if !errorlevel! neq 0 (
+    echo.
+    echo [WARN] TTS requirements failed on first pass.
+    echo        Retrying without "--no-binary=opencc" ^(needs MSVC otherwise^) ...
+    findstr /v /b "--no-binary" requirements-tts.txt > requirements-tts.fallback.txt
+    python -m pip install -r requirements-tts.fallback.txt || goto :fail
+)
 python -m pip install "numpy==1.26.4" || goto :fail
 python -c "import torch,numpy;print('      torch',torch.__version__,'cuda',torch.cuda.is_available(),'| numpy',numpy.__version__)"
 call ".venv-tts\Scripts\deactivate.bat"
