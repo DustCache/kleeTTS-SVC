@@ -164,6 +164,23 @@ svc_convert.cmd D:\song\vocals D:\song\vocals_klee 12
 
 ## 常见问题
 
+### 遇到报错，先跑这个
+
+```bat
+doctor.cmd
+```
+
+它会输出一份**环境报告**：Python 版本、torch/CUDA、显卡型号与算力、numpy 版本、
+fairseq 是否可用、以及所有模型文件是否放对位置。
+
+报告里带 `[FAIL]` 的行就是问题所在。要反馈问题，把整段输出贴出来即可：
+
+```bat
+doctor.cmd > report.txt
+```
+
+比"报错了"有用一万倍——99% 的失败是环境或文件放错，不是代码问题。
+
 **1. `no kernel image is available`（RTX 50 系）**
 torch 装成了 cu121。卸载后重装：
 ```bat
